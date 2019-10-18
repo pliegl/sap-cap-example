@@ -1,0 +1,16 @@
+_schema-version: 2.0.0
+ID: bookshop
+version: 1.0.0
+modules:
+  - name: bookshop-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 256M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: bookshop-db-hdi-container
